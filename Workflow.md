@@ -98,9 +98,11 @@ docker compose down
 - `DB_PASSWORD=test` — пароль MongoDB.
 - `DB_PORT=27017` — порт MongoDB.
 - `DB_NAME=six-cities` — имя базы данных.
-- `UPLOAD_DIRECTORY=upload` — директория хранения загружаемых файлов.
-- `STATIC_DIRECTORY_PATH=static` - директория хранения статический файлов.
+- `UPLOAD_FILES_DIRECTORY=upload` — директория хранения загружаемых файлов.
+- `STATIC_FILES_DIRECTORY=static` - директория хранения статический файлов.
 - `JWT_SECRET=CpvUxK5FSGdIbNNmqqArLxq9EjAHTSHb` — секрет подписи JWT-токенов.
+- `JWT_ALGORITHM=HS256` — алгоритм подписи JWT.
+- `JWT_EXPIRED=2d` — время жизни JWT-токена.
 
 ## Сценарии
 
@@ -127,6 +129,7 @@ npm run cli -- --<command> [--arguments]
 
 - `--version` — вывод версии приложения.
 - `--help` — вывод справки по командам.
-- `--import <path> <db-uri> <salt>` — импорт TSV в MongoDB.
-- `--import <path> <user> <password> <host> <db> <salt>` — импорт TSV c параметрами подключения по частям.
+- `--import <path>` - импорт данных из TSV в MongoDB c параметрами подключения из `.env`.
+- `--import <path> <db-uri> <salt>` — импорт данных из TSV в MongoDB.
+- `--import <path> <user> <password> <host> <port> <db> <salt>` — импорт данных из TSV в MongoDB c параметрами подключения по частям.
 - `--generate <n> <path> <url>` — генерация TSV с тестовыми предложениями.
